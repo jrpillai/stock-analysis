@@ -60,7 +60,7 @@ The original code needs to examine each line of the data worksheet 12 times, onc
         Next j
 ```
 
-The refactored code only analyzes each line once, detecting when data for a new ticker has been reach or data for the previous ticker is complete, and extracting the needed information to an array. The actual ticker is modified within the `fo`r loop, such that the entire for loop does not need to be examined for each ticker.
+The refactored code only analyzes each line once, detecting when data for a new ticker has been reached or the end of data for the previous ticker has been reached, and extracting the needed information to an array. The actual ticker is modified within the `for` loop, such that the entire for loop does not need to be executed for each ticker.
 
 ```
 
