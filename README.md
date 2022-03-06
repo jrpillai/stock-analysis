@@ -24,8 +24,8 @@ And the message boxes for the refactored code for each year:
 
 The original code needs to examine each line of the data worksheet 12 times, once for each of the 12 tickers.
 
-'''
-(5) Loop through rows in the data
+```
+'(5) Loop through rows in the data
     Sheets(yearValue).Activate
         For j = rowStart To rowEnd
         
@@ -46,7 +46,7 @@ The original code needs to examine each line of the data worksheet 12 times, onc
             End If
             
         Next j
-'''
+```
 
 The refactored code only analyzes each line once, detecting when a new ticker has reached and storing the extracted information in an array. It is likely this difference will be exacerbated even more as we expand to the entire stock market, where the refactored code will be much more efficient. See below for a table summary of the script execution time. 
 
