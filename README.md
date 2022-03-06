@@ -15,7 +15,7 @@ In 2017, most of the stocks had a positive annual return, with several stocks ne
 
 In 2018, most of the stocks had a negative annual return, with only two stocks performing positively - Enphase Energy (ENPH) at 81.9% and Sunrun (RUN) at 84.0%.
 
-The total daily volume for each stock fluctuated between the two years with no discernable pattern, as depicted in the graph below. The overall total daily volume for all the renewable energy stocks is about the same in 2017 and 2018 (approximately 3 trillion shares), indicating that interest in trading this stocks is stable.
+The total daily volume for each stock fluctuated between the two years with no discernable pattern, as depicted in the graph below. The overall total daily volume for all the renewable energy stocks is about the same in 2017 and 2018 (approximately 3 trillion shares), indicating that interest in trading renewable energy stocks is stable.
 
 ![Total Daily Volume for Selected Renewable Energy Stocks in 2017 and 2018](Resources/total_daily_volume.png)
 
