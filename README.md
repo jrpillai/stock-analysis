@@ -9,18 +9,23 @@
 
 Overall, the selected renewable energy stocks performed much better in 2017 than 2018, as depicted in the graph below.
 
+![Annual Return for Selected Renewable Energy Stocks in 2017 and 2018](Resources/annual_return.png)
+
 In 2017, most of the stocks had a positive annual return, with several stocks nearing 200% - DAQO New Energy Corp (DQ) at 199.4% and SolarEdge Technologies (SEDG) at 184.5%. Only Terraform Power (TERP) had a negative annual return, at -7.2%. 
 
 In 2018, most of the stocks had a negative annual return, with only two stocks performing positively - Enphase Energy (ENPH) at 81.9% and Sunrun (RUN) at 84.0%.
 
-
 The total daily volume for each stock fluctuated between the two years with no discernable pattern, as depicted in the graph below. The overall total daily volume for all the renewable energy stocks is about the same in 2017 and 2018 (approximately 3 trillion shares), indicating that interest in trading this stocks is stable.
+
+![Total Daily Volume for Selected Renewable Energy Stocks in 2017 and 2018](Resources/total_daily_volume.png)
 
 ## Script Execution Time
 
 The stock analysis code was refactored to produce the same results in a simpler and more efficient way. The refactored code performs about 10 times faster than the original code. The code also times itself and reports the execution time to the user. Below are the message boxes for the original code for each year: 
 
+![Execution time for refactored script for 2017 data](Resources/VBA_Challenge_2017_original.png)
 
+![Execution time for refactored script for 2018 data](Resources/VBA_Challenge_2018_original.png)
 
 And the message boxes for the refactored code for each year:
 
@@ -88,6 +93,8 @@ The refactored code only analyzes each line once, detecting when data for a new 
 ```
 
 As we expand to the entire stock market, this difference will be exacerbated, and the refactored code will be much more efficient. See below for a table summary of the script execution time. 
+
+![Table Summary of Execution Time](Resources/code_times.png)
 
 # Summary
 
