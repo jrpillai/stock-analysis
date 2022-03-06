@@ -25,27 +25,29 @@ And the message boxes for the refactored code for each year:
 The original code needs to examine each line of the data worksheet 12 times, once for each of the 12 tickers.
 
 '''
-    '(5) Loop through rows in the data
-        Sheets(yearValue).Activate
-            For j = rowStart To rowEnd
-            
-            '(5a) Get total volume for current ticker
-                If Cells(j, 1).Value = ticker Then
-                totalVolume = totalVolume + Cells(j, 8).Value
-                End If
-            
+
+'(5) Loop through rows in the data
+    Sheets(yearValue).Activate
+        For j = rowStart To rowEnd
         
-            '(5b) get starting price for current ticker
-                If Cells(j - 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then
-                startingPrice = Cells(j, 6).Value
-                End If
-                
-            '(5c) get ending price for current ticker
-                If Cells(j + 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then
-                endingPrice = Cells(j, 6).Value
-                End If
-                
-            Next j
+        '(5a) Get total volume for current ticker
+            If Cells(j, 1).Value = ticker Then
+            totalVolume = totalVolume + Cells(j, 8).Value
+            End If
+        
+    
+        '(5b) get starting price for current ticker
+            If Cells(j - 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then
+            startingPrice = Cells(j, 6).Value
+            End If
+            
+        '(5c) get ending price for current ticker
+            If Cells(j + 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then
+            endingPrice = Cells(j, 6).Value
+            End If
+            
+        Next j
+'''
 
 The refactored code only analyzes each line once, detecting when a new ticker has reached and storing the extracted information in an array. It is likely this difference will be exacerbated even more as we expand to the entire stock market, where the refactored code will be much more efficient. See below for a table summary of the script execution time. 
 
