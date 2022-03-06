@@ -25,8 +25,7 @@ And the message boxes for the refactored code for each year:
 The original code needs to examine each line of the data worksheet 12 times, once for each of the 12 tickers.
 
 '''
-
-'(5) Loop through rows in the data
+(5) Loop through rows in the data
     Sheets(yearValue).Activate
         For j = rowStart To rowEnd
         
