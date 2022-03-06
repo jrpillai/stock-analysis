@@ -18,13 +18,20 @@ The total daily volume for each stock fluctuated between the two years with no d
 
 ## Script Execution Time
 
-The stock analysis code was refactored to produce the same results in a simpler and more efficient way. The refactored code performs about 10 times faster than the original code. The code also times itself and reports the time to the user. Below are the message boxes for the original code for each year: 
+The stock analysis code was refactored to produce the same results in a simpler and more efficient way. The refactored code performs about 10 times faster than the original code. The code also times itself and reports the execution time to the user. Below are the message boxes for the original code for each year: 
+
+
 
 And the message boxes for the refactored code for each year:
 
-The original code needs to examine each line of the data worksheet 12 times, once for each of the 12 tickers.
+![Execution time for refactored script for 2017 data](../stock-analysis/Resources/VBA_Challenge_2017.png)
+
+![Execution time for refactored script for 2018 data](../stock-analysis/Resources/VBA_Challenge_2018.png)
+
+The original code needs to examine each line of the data worksheet 12 times, once for each of the 12 tickers. Using j as a counter for loop, the logic requires that each line be checked to see if the value in the ticker column is equal to the value of the current ticker for each of the three if statements. The actual ticker is modified outside of this for loop. 
 
 ```
+
 '(5) Loop through rows in the data
     Sheets(yearValue).Activate
         For j = rowStart To rowEnd
@@ -47,9 +54,58 @@ The original code needs to examine each line of the data worksheet 12 times, onc
             
         Next j
 ```
+'2b) Loop over all the rows in the spreadsheet.
+    For i = 2 To RowCount
+    
+    
+        '3a) Increase volume for current ticker
+        tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value
+        
+        '3b) Check if the current row is the first row with the selected tickerIndex.
+        If Cells(i - 1, 1).Value <> tickers(tickerIndex) Then
+            tickerStartingPrices(tickerIndex) = Cells(i, 6).Value
+            
+            
+        End If
+        
+        '3c) check if the current row is the last row with the selected ticker
+        If Cells(i + 1, 1).Value <> tickers(tickerIndex) Then
+            tickerEndingPrices(tickerIndex) = Cells(i, 6).Value
+        End If
+        
+        'If the next row’s ticker doesn’t match, increase the tickerIndex.
+        If Cells(i + 1, 1).Value <> tickers(tickerIndex) Then
+        
+        '3d Increase the tickerIndex.
+        tickerIndex = tickerIndex + 1
+        End If
 
-The refactored code only analyzes each line once, detecting when a new ticker has reached and storing the extracted information in an array. It is likely this difference will be exacerbated even more as we expand to the entire stock market, where the refactored code will be much more efficient. See below for a table summary of the script execution time. 
+```
+
+The refactored code only analyzes each line once, detecting when data for a new ticker has been reach or data for the previous ticker is complete, and extracting the needed information to an array. The actual ticker is modified within the for loop, such that the entire for loop does not need to be examined for each ticker
+
+As we expand to the entire stock market, this difference will be exacerbated, and the refactored code will be much more efficient. See below for a table summary of the script execution time. 
 
 # Summary
 
-The most obvious advantage of refactoring code is that it can result in faster, more efficient, and more generalizable code. 
+## Advantages and Disadvantages of Refactoring Code
+
+The most obvious advantage of refactoring code is that it can result in faster, more efficient, and more generalizable code. Refactored code is often simpler, shorter, and modular, allowing it to applied to larger data sets or other similar problems with few changes. It can also be easier to read and understand, with each important function separated out. 
+
+Refactoring code does have some disadvantages. The process is time-consuming and may not be successful, making it risky for time-sensitive projects. It can require a significant amount of debugging, expertise, and testing. 
+
+## Advantages and Disadvantages of Refactoring the VBA Stock Analysis Script
+
+As discussed above, the refactored stock analysis script code has the following advantages: 
+* It runs almost 10 times faster.
+* It examines the entire worksheet only once, modifying the ticker being examined within the for loop.
+* It is simpler and easier to read and understand.
+* It can be easily generalized to the entire stock market efficiently.
+
+Refactoring the code had the following disadvantages:
+* It was time and effort consuming, with a single mistake taking over an hour to uncover.
+* The original code was already stable and successful for the function it was written for, so refactoring may not have been necessary.
+
+
+
+
