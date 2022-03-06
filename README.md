@@ -1,6 +1,6 @@
 # Stock Analysis Using Excel VBA
 
-You asked me to prepare VBA code to expand our analysis from just selected renewable energy stocks to the entire stock market. For this analysis, I refactored my original code to make it run faster, so that it can efficiently analyze any number of stocks and provide you with the Total Daily Volume and Annual Return for each stock. It also allows you to quickly analyze data for different years. With this information, you can make informed decisions to diversity your parents stock portfolio. 
+You asked me to prepare VBA code to expand our analysis from just selected renewable energy stocks to the entire stock market. For this analysis, I refactored my original code to make it run faster, so that it can efficiently analyze any number of stocks and provide you with the Total Daily Volume and Annual Return for each stock. It also allows you to quickly analyze data for different years. With this information, you can make informed decisions to diversify your parents' stock portfolio. 
 
 
 # Results 
