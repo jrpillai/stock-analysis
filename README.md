@@ -24,9 +24,9 @@ The stock analysis code was refactored to produce the same results in a simpler 
 
 And the message boxes for the refactored code for each year:
 
-![Execution time for refactored script for 2017 data](../stock-analysis/Resources/VBA_Challenge_2017.png)
+![Execution time for refactored script for 2017 data](./stock-analysis/Resources/VBA_Challenge_2017.png)
 
-![Execution time for refactored script for 2018 data](../stock-analysis/Resources/VBA_Challenge_2018.png)
+![Execution time for refactored script for 2018 data](./stock-analysis/Resources/VBA_Challenge_2018.png)
 
 The original code needs to examine each line of the data worksheet 12 times, once for each of the 12 tickers. Using j as a counter for loop, the logic requires that each line be checked to see if the value in the ticker column is equal to the value of the current ticker for each of the three if statements. The actual ticker is modified outside of this for loop. 
 
@@ -54,6 +54,11 @@ The original code needs to examine each line of the data worksheet 12 times, onc
             
         Next j
 ```
+
+The refactored code only analyzes each line once, detecting when data for a new ticker has been reach or data for the previous ticker is complete, and extracting the needed information to an array. The actual ticker is modified within the for loop, such that the entire for loop does not need to be examined for each ticker
+
+```
+
 '2b) Loop over all the rows in the spreadsheet.
     For i = 2 To RowCount
     
@@ -81,8 +86,6 @@ The original code needs to examine each line of the data worksheet 12 times, onc
         End If
 
 ```
-
-The refactored code only analyzes each line once, detecting when data for a new ticker has been reach or data for the previous ticker is complete, and extracting the needed information to an array. The actual ticker is modified within the for loop, such that the entire for loop does not need to be examined for each ticker
 
 As we expand to the entire stock market, this difference will be exacerbated, and the refactored code will be much more efficient. See below for a table summary of the script execution time. 
 
